@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", monospace;
+}
+
+input[type="range"] {
+  appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  background-color: #e6e5ea;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+}
+
+.checkbox:checked .checkbox-container {
+  background-color: yellow;
+}
+
+.main input[type="checkbox"] {
+  visibility: hidden;
+}
+
+/* Hover effect */
+.main:hover input ~ .checkbox-container {
+  background-color: yellow;
+  opacity: 0.5;
+}
+
+/* Checked effect */
+.main input:checked ~ .checkbox-container {
+  background-color: #a4ffaf;
+  border: none;
+}
+
+/* Checkmark */
+.checkbox-container::after {
+  content: "";
+  position: absolute;
+  display: none;
+  width: 6px;
+  height: 12px;
+  border: solid #18171f;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Display checkmark when checked */
+.main input:checked ~ .checkbox-container::after {
+  display: block;
+}
